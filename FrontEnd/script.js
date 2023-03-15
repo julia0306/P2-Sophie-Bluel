@@ -90,9 +90,3 @@ async function getData(){
 
     getData ();
  
-
-
-
-
-
-
