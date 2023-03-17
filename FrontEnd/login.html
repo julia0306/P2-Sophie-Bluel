@@ -12,15 +12,23 @@
 </head>
 <body>
     <header>
-        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+        <div class="edit-banner">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <p>Mode édition</p>
+            <button id="banner-btn">publier les changements</button>
+        </div>
+        <div id="navbar">
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
         <nav>
             <ul>
-                <li><a href=index.html></a>projets</li>
-                <li>contact</li>
-                <li><a href=login.html>login</a></li>
+                <li><a href=index.html>projets</a></li>
+                <li><a href=#contact>contact</a></li>
+                <li id="login-btn"><a href=login.html>login</a></li>
+                <li id="logout-btn">logout</a></li>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
+        </div>
     </header>
     <main>
         <section id="login">
@@ -30,7 +38,7 @@
                 <input type="email" name="email"/>
                 <label id="login-label" for="password">Mot de passe</label>
                 <input type="password" name="password"/>
-                <input id="login-btn" type="submit" value="Se connecter"/>
+                <input id="login-submit" type="submit" value="Se connecter"/>
                 <a href="#">Mot de passe oublié</a>
             </form>
         </section>

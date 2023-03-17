@@ -9,23 +9,33 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/b932d69e5e.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+	<div class="editor-content edit-banner">
+		<i class="fa-solid fa-pen-to-square"></i>
+		<p>Mode édition</p>
+		<button id="banner-btn">publier les changements</button>
+	</div>
+	<div id="navbar">
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li><a href=index.html></a>projets</li>
-			<li>contact</li>
-			<li><a href=login.html>login</a></li>
+			<li><a href=index.html>projets</a></li>
+			<li><a href=#contact>contact</a></li>
+			<li id="login-btn"><a href=login.html>login</a></li>
+			<li id="logout-btn">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
+	</div>
 </header>
 <main>
 	<section id="introduction">
-		<figure>
+		<figure id ="introduction-image">
 			<img src="./assets/images/sophie-bluel.png" alt="">
+			<a class="editor-content edit-link" href="#"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -35,7 +45,8 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<h2>Mes Projets<a  class="editor-content edit-link" href="#"><i class="fa-solid fa-pen-to-square"></i>Modifier</a></h2>
+		
 		<div class = filterbar>
 		<button class="filterbutton all-button">Tous</button>
 		<button class="filterbutton objects-button">Objets</button>
@@ -69,5 +80,6 @@
 </footer>
 <script src="script.js"></script>
 <script src="login.js"></script>
+<script src="modal.js"></script>
 </body>
 </html>
