@@ -1,6 +1,7 @@
+
 console.log('Connecté !');
 
-//J'initialise les variables dont je vais avoir besoin 
+//Je déclare les variables dont je vais avoir besoin 
 const gallery = document.querySelector(".gallery");
 console.log(gallery, 'gallery')
 
@@ -48,7 +49,7 @@ async function getData(){
     
 
         
-        // Je crée un eventListener pour écouter l'événement click
+        // Je crée un eventListener pour écouter l'événement 'click'
         //Je modifie l'innerHTML pour afficher seulement les images qui correspondent au filtre
     
     allButton.addEventListener("click", function(){
@@ -89,4 +90,3 @@ async function getData(){
     }
 
     getData ();
- 

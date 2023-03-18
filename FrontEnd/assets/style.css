@@ -164,7 +164,7 @@ li:hover, a:hover{
 
 
 
-.edit-link{
+.edit-link-a, .edit-link-b{
 	display: none;
 	color:black;
 	font-size:14px;
@@ -173,7 +173,7 @@ li:hover, a:hover{
 
 }
 
-.edit-link i{
+.edit-link-a i, .edit-link-b i{
 	padding:0 8px 0 52px
 }
 
@@ -247,7 +247,7 @@ li:hover, a:hover{
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"], #login-submit{
+input[type="submit"], #login-submit, .submit-button {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -256,6 +256,7 @@ input[type="submit"], #login-submit{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	padding: 8px;
 }
 
 footer nav ul {
@@ -281,5 +282,119 @@ footer nav ul {
 #login a{
 	align-self: center;
 	text-decoration: underline;
+}
+
+/*CSS rules for modal */
+.modal-wrapper{
+	visibility: hidden;
+	height:450vh;
+	width: 100%;
+	position:absolute;
+	top:0;
+	left:0;
+	justify-content: center;
+	align-items: center;
+}
+
+#modal-container{
+	display: none;
+	position: relative;
+	top:700px;
+	left: 23vw;
+	display: flex;
+	width: 50vw;
+	vertical-align:bottom;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	border: 1px solid black;
+	padding: 32px;
+} 
+
+#add-photo-container{
+	position: absolute;
+	top:700px;
+	left: 23vw;
+	display: flex;
+	width: 50vw;
+	vertical-align:bottom;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	border: 1px solid black;
+	padding: 32px;
+}
+
+#modal-container p{
+	color: #D65353;
+}
+
+.fa-times{
+	display: block;
+	position: absolute;
+	top:16px;
+	right: 32px;
+	font-size: 1.5rem;
+}
+
+.fa-times:hover{
+	cursor: pointer;
+}
+#modal-container h3, #add-photo-container h3{
+	font-size:26px;
+}
+
+.modal-gallery {
+	width: 90%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	border-bottom: 1px solid grey;
+	padding:32px 0;
+}
+
+.modal-gallery img{
+	width: 100%;
+	height:170px;
+}
+
+.fa-trash-can{
+	background-color: black;
+	color: white;
+	padding: 6px;
+	border-radius: 25%;
+	top:0;
+}
+.icon-div {
+	gap: 8px;
+	position: relative;
+	text-align: right;
+	top: -170px;
+	margin-right:8px ;
+}
+
+.fa-arrows-up-down-left-right{
+	visibility: hidden;
+	background-color: black;
+	color: white;
+	padding: 6px;
+	border-radius: 25%;
+}
+
+.modal-gallery figure:hover .fa-arrows-up-down-left-right{
+	visibility: visible;
+}
+
+.modal-gallery{
+	cursor: pointer;
+}
+
+#modal-icons{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
