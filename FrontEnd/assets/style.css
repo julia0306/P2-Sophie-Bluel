@@ -150,6 +150,7 @@ li:hover, a:hover{
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -164,17 +165,28 @@ li:hover, a:hover{
 
 
 
-.edit-link-a, .edit-link-b{
+.js-modal{
 	display: none;
 	color:black;
 	font-size:14px;
 	font-family: 'Work Sans';
 	font-weight: 400;
-
+	align-items: center;
+	padding-bottom: 16px;;
 }
 
-.edit-link-a i, .edit-link-b i{
-	padding:0 8px 0 52px
+.js-modal i{
+	padding: 0 8px 0 0;
+	font-size: 1rem;
+	font-weight:400;
+}
+
+#portfolio .js-modal{
+	margin-left: 24px;
+}
+
+#introduction-image .js-modal{
+	margin-left:55px
 }
 
 .filterbar{
@@ -286,30 +298,29 @@ footer nav ul {
 
 /*CSS rules for modal */
 .modal-wrapper{
-	visibility: hidden;
-	height:450vh;
-	width: 100%;
-	position:absolute;
+	position:fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	top:0;
 	left:0;
-	justify-content: center;
-	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+
 }
 
 #modal-container{
-	display: none;
-	position: relative;
-	top:700px;
-	left: 23vw;
+	overflow: auto;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
 	display: flex;
-	width: 50vw;
-	vertical-align:bottom;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	background-color: white;
 	border: 1px solid black;
-	padding: 32px;
+	padding: 48px;
 } 
 
 #add-photo-container{
@@ -317,10 +328,7 @@ footer nav ul {
 	top:700px;
 	left: 23vw;
 	display: flex;
-	width: 50vw;
-	vertical-align:bottom;
 	flex-direction: column;
-	align-items: center;
 	justify-content: space-between;
 	background-color: white;
 	border: 1px solid black;
@@ -332,14 +340,12 @@ footer nav ul {
 }
 
 .fa-times{
-	display: block;
-	position: absolute;
-	top:16px;
-	right: 32px;
+	position:relative;
+	align-self: flex-end;
 	font-size: 1.5rem;
 }
 
-.fa-times:hover{
+.fa-times:hover, .modal-gallery, a:hover{
 	cursor: pointer;
 }
 #modal-container h3, #add-photo-container h3{
@@ -358,7 +364,8 @@ footer nav ul {
 
 .modal-gallery img{
 	width: 100%;
-	height:170px;
+	height:120px;
+	object-fit: cover;
 }
 
 .fa-trash-can{
@@ -372,7 +379,7 @@ footer nav ul {
 	gap: 8px;
 	position: relative;
 	text-align: right;
-	top: -170px;
+	top: -130px;
 	margin-right:8px ;
 }
 
@@ -388,13 +395,14 @@ footer nav ul {
 	visibility: visible;
 }
 
-.modal-gallery{
-	cursor: pointer;
-}
 
 #modal-icons{
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+}
+
+.modal-wrapper-bis{
+	display: none;
 }
 
