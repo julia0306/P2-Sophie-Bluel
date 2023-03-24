@@ -32,7 +32,7 @@ loginForm.addEventListener('submit', function(e){
         .then((user) => {
             localStorage.setItem('token', user.token);
             const userToken=localStorage.getItem('token');
-            if (userToken){
+            if(userToken){
                 console.log('user connected'),
                 window.location.replace("./index.html")
             }

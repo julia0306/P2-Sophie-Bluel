@@ -68,7 +68,6 @@ logoutButton.addEventListener('click', function(){
 
 // J'affiche la modale lorsque l'utilisateur clique sur le bouton "Modifier'
 let modal = null
-
 const openModal = function(e){
     e.preventDefault()
     const target = document.querySelector(e.target.getAttribute('href'))

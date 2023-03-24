@@ -5,7 +5,7 @@ console.log('Connecté !');
 const gallery = document.querySelector(".gallery");
 console.log(gallery, 'gallery')
 
-    // les boutons
+// les boutons
 
 const allButton = document.querySelector(".all-button");
 console.log(allButton, 'all button');
