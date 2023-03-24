@@ -1,6 +1,5 @@
 // Je génère un formulaire de connexion fonctionnel
 
-
 const loginForm=document.querySelector(".login-form");
 
         // Je crée un eventListener pour écouter l'événement 'submit'
@@ -32,7 +31,7 @@ loginForm.addEventListener('submit', function(e){
         .then((user) => {
             localStorage.setItem('token', user.token);
             const userToken=localStorage.getItem('token');
-            if(userToken){
+            if (userToken){
                 console.log('user connected'),
                 window.location.replace("./index.html")
             }
