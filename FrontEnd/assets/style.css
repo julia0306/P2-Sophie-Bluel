@@ -178,7 +178,6 @@ li:hover, a:hover{
 .open-js-modal i{
 	padding: 0 8px 0 0;
 	font-size: 1rem;
-	font-weight:400;
 }
 
 #portfolio .open-js-modal{
@@ -244,7 +243,7 @@ li:hover, a:hover{
 }
 
 
-#contact input, .login-form input, #modal1 input, select {
+#contact input, .login-form input, #modal input, select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
@@ -304,9 +303,9 @@ footer nav ul {
 }
 
 /*CSS rules for modal */
-.modal-wrapper{
+#modal{
 	position:fixed;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: center;
 	top:0;
@@ -317,11 +316,17 @@ footer nav ul {
 
 }
 
-#modal-container, #add-photo-container{
+#modal-container
+{display: none};
+
+#add-photo-container{
+	display:none;
+	gap:16px;}
+
+#modal-container,  #add-photo-container{
 	overflow: auto;
 	width:550px;
-	height:550px;
-	display: flex;
+	max-height: calc(100vh - 20px);
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
@@ -330,13 +335,17 @@ footer nav ul {
 	padding:16px;
 } 
 
-#add-photo-container{
-	gap:16px;
-}
-
 
 #modal-container p{
 	color: #D65353;
+}
+
+#add-photo-container .return-button{
+	display: flex
+}
+
+#modal-container .return-button{
+	visibility: hidden;
 }
 
 .fa-times:hover, .modal-gallery, a:hover{
@@ -359,7 +368,7 @@ footer nav ul {
 	align-items: center;
 	gap: 20px;
 	border-bottom: 1px solid grey;
-	padding:32px 0px;
+	margin:16px 0px;
 
 }
 
@@ -418,15 +427,15 @@ footer nav ul {
 }
 
 
-#modal-container .return-button{
-	visibility: hidden;
+
+#add-photo-container .return-button, #add-photo-container i{
+	visibility: visible;
+	display: flex;
 }
-
-
 
 /* Formulaire ajout photos */
 .drag-area{
-	height:180px;
+	height:160px;
 	background-color: #E8F1F6;
 	display: flex;
 	flex-direction: column;
@@ -445,6 +454,8 @@ footer nav ul {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding-bottom: 48px;
+	border-bottom: 1px solid grey;
 }
 
 .input-btn{
@@ -455,11 +466,21 @@ footer nav ul {
 	padding: 8px 24px;
 }
 
-.display-none{
-	display: none;
-}
+
 
 .confirm-photo-button{
 	background-color: #A7A7A7;
 	border: none;
+	margin: 24px 0px;
 }
+
+
+
+.modal-icons{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.5rem;
+	background-color: none;
+}
+

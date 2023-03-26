@@ -46,7 +46,7 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets<a href="#modal1" class="editor-content open-js-modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a></h2>
+		<h2>Mes Projets<a href="#modal" class="editor-content open-js-modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a></h2>
 		<div class = filterbar>
 		<button class="filterbutton all-button">Tous</button>
 		<button class="filterbutton objects-button">Objets</button>
@@ -56,11 +56,11 @@
 		<div class="gallery">
 		</div>
 	</section>
-	<aside id = "modal1" class = "modal-wrapper" aria-hidden="true" role="dialog" aria-labelledby="modal-title" style="display:none">
-		<div id="modal-container" class="close-space">
+	<aside id = "modal"  aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+		<div id="modal-container">
 			<div class= "modal-icons">
 				<button class= "return-button"><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
-				<button class= "close-button"><i class="fas fa-times"></i></button>
+				<button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
 			</div>
 			<h3 id="modal-title">Galerie Photo</h3>
 			<div class="modal-gallery">
@@ -69,18 +69,18 @@
 			<button class="add-photo-button">Ajouter une photo</button>
 			<p class="delete-gallery-link" href="#">Supprimer la galerie</p>
 		</div>
-		<div id="add-photo-container" style="display:none">
+		<div id="add-photo-container">
 			<div class= "modal-icons">
-				<button class= "return-button"><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
-				<button class= "close-button"><i class="fas fa-times"></i></button>
+				<button class= "return-button open-js-modal"><i class="fa-sharp fa-solid fa-arrow-left" ></i></button>
+				<button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
 			</div>
 			<h3>Ajout photo</h3>
 			<form id="add-photo-form" action='http://localhost:5678/api/works' method="post">
 				<div class="drag-area">
 					<i class="fa fa-image"></i>
-					<input class="display-none" type="file" name="ajouter une photo" value="ajouter une photo"
-					accept="image/png, image/jpeg">
-					<button class="input-btn">+ Ajouter photo</button>
+					<input type="file" id="actual-btn" name="ajouter une photo" value="ajouter une photo"
+					accept="image/png, image/jpeg" style="display:none">
+					<label for="actual-btn" class="input-btn">+ Ajouter photo</label>
 					<p class ="add-photo-infos">jpg, png : 4mo max</p>
 				</div>
 				<label for="title">Titre</label>
@@ -116,6 +116,6 @@
 		</ul>
 	</nav>
 </footer>
-<script type="module" src="script.js"></script>
+<script type="module" src= "./script.js" ></script>
 </body>
 </html>
