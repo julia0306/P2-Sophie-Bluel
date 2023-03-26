@@ -1,6 +1,6 @@
-    const getWorks=await fetch('http://localhost:5678/api/works');
-    const galleryImages = await getWorks.json();
-    export {galleryImages};
+const getWorks=await fetch('http://localhost:5678/api/works');
+const galleryImages = await getWorks.json();
+export {galleryImages};
 
 //Je déclare les variables dont je vais avoir besoin 
 const gallery = document.querySelector(".gallery");
@@ -22,6 +22,7 @@ function showGallery(galleryImages){
     gallery.appendChild(figure);
     figure.appendChild(individualImage);
     figure.appendChild(imageTitle);
+    figure.dataset.id=imageData.id;
     individualImage.alt=imageData.title;};
     }
 
@@ -68,9 +69,9 @@ const hotelsButton = document.querySelector(".hotels-button");
         showGallery(hotelsGallery);
 });
 
+
+
 export {showGallery}
-import { editorAccess } from "./modal.js";
-import { displayModal } from "./modal.js";
+import {editorAccess} from "./modal.js";
 
 editorAccess()
-displayModal

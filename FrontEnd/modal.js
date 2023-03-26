@@ -1,6 +1,3 @@
-import {galleryImages} from "./script.js";
-import {showGallery} from "./script.js";
-
 export function editorAccess(){
     const editorContent=document.querySelectorAll('.editor-content');
     const logoutButton=document.getElementById('logout-btn');
@@ -25,65 +22,110 @@ export function editorAccess(){
     logoutButton.style.display="none";
     })
     }
-
     editorAccess()
 
-export function displayModal(){
-// J'affiche la modale lorsque l'utilisateur clique sur le bouton "Modifier'
-let modal = null
-
-const openModal = function(e){
-    e.preventDefault()
-    //2. Mon target = le lien"#modal1"
-    const target = document.querySelector(e.target.getAttribute('href'))
-    //3. J'annule le display "none"
-    target.style.display=null
-    target.removeAttribute('aria-hidden')
-    target.setAttribute('aria-modal', 'true')
-    //modal= "#modal1"
-    modal=target
-    modal.addEventListener('click', closeModal)
-    modal.querySelector('.fa-times').addEventListener('click', closeModal)
-    modal.querySelector('.close-space').addEventListener('click', stopPropagation)
 
 
-}
+//J'affiche la galerie dans la modale 
 
-// Je supprime la modale lorsque l'utilisateur clique sur la croix ou sur la fenêtre modale
-const closeModal = function(e){
-    if (modal === null) return
-    e.preventDefault()
-    modal.style.display="none"
-    modal.setAttribute('aria-hidden', 'true')
-    modal.removeAttribute('aria-modal')
-    modal.removeEventListener('click', closeModal)
-    modal.querySelector('.fa-times').removeEventListener('click', closeModal)
-    modal.querySelector('.close-space').removeEventListener('click', stopPropagation)
-    modal = null
-}
-// J'empêche la modale de se refermer lorsque l'utilisateur clique sur le contenu de la modale
-const stopPropagation = function (e) {
-    e.stopPropagation()
-}
+// Je récupère les travaux depuis l'API et je crée ma modale
+async function getWorks(){
+    const galleryResponse=await fetch('http://localhost:5678/api/works');
+    const galleryImages = await galleryResponse.json();
+    function showGallery(galleryImages){
+        for (let i = 0; i < galleryImages.length; i++){
+            const modalGallery=document.querySelector(".modal-gallery")
+        const imageData=galleryImages[i];
+    const modalFigure = document.createElement("figure");
+    const modalImage=document.createElement('img');
+    const modalCaption = document.createElement("figcaption");
+    modalGallery.appendChild(modalFigure);
+    modalFigure.appendChild(modalImage);
+    modalImage.src=imageData.imageUrl;
+    modalFigure.appendChild(modalCaption);
+    modalFigure.classList.add('.modal-figure');
+    modalFigure.dataset.id=imageData.id;
+    modalCaption.innerText="éditer";
+    const iconDiv = document.createElement('div')
+    modalFigure.appendChild(iconDiv);
+    iconDiv.innerHTML=
+        `<div class="icon-div">
+        <button class="maximize-btn"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
+        <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+        </div>`;}
+        const deleteButton=document.querySelectorAll(".delete-btn")
+        console.log(deleteButton, "delete");
+        // Je récupère l'id du projet 
 
-document.querySelectorAll('.open-js-modal').forEach(a =>{a.addEventListener('click', openModal)})
-
-
-// J'instaure la fermeture de la modale au clic de la touche "Echap"
-window.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' || e.key === "Esc"){closeModal(e)}
+deleteButton.forEach(button => {
+    button.addEventListener("click", function(e) {
+        let btnClicked = e.target;
+        let figureToDelete = btnClicked.parentNode.parentNode.parentNode.parentNode;
+        const userToken=localStorage.getItem('token');
+        console.log(figureToDelete,"ftd");
+        const workID=figureToDelete.dataset.id;
+        alert(workID +'will be deleted')
+        async function deleteWorkfromGallery (workID){
+            e.preventDefault
+            await fetch('http://localhost:5678/api/works/'+ workID,{
+                method:'DELETE',
+                headers:{
+                    "Authorization": "Bearer" +" " + userToken
+                }
+            })
+            .then ((response)=>{
+                if(response.status === 401){
+                    alert("Vous n'êtes pas autorisé à supprimer ce projet")}
+                if(response.status === 404){
+                    alert("Cette action ne peut être réalisée")}
+                if(response.status === 200){
+                    alert("Le projet a bien été supprimé")
+                }})
+        }
+        deleteWorkfromGallery(workID)
+    });
 })
+        }
+    showGallery(galleryImages);}
+    getWorks()
 
-}
-displayModal()
 
 // J'instaure l'alternance de modale en fonction du comportement de l'utilisateur
 
+const openModalButton=document.querySelectorAll(".open-js-modal");
+const closeModalButton=document.querySelectorAll(".close-js-modal")
+const modal1=document.getElementById('modal');
+const modalDiv1=document.getElementById('modal-container');
+const modalDiv2=document.getElementById('add-photo-container')
+openModalButton.forEach(button=>{button.addEventListener('click', function(){
+    modal1.style.display="flex";
+    modalDiv1.style.display="flex";
+    modalDiv2.style.display="none";
 
-const addPhotoButton=document.querySelector('.add-photo-button');
-const addPhotoContainer=document.getElementById('add-photo-container');
-const modalContainer=document.getElementById('modal-container');
-addPhotoButton.addEventListener('click', function(){
-    modalContainer.style.display="none";
-    addPhotoContainer.style.display="flex";
+})})
+
+//J'affiche la modale 1 si l'utilisateur clique sur la flèche 
+const returnButton=document.querySelector('.return-button')
+returnButton.addEventListener('click', function(){
+    modal1.style.display="flex";
+    modalDiv1.style.display="flex";
+    modalDiv2.style.display="none";
 })
+
+const addPhotoButton=document.querySelector('.add-photo-button')
+addPhotoButton.addEventListener('click', function(){
+    modal1.style.display="flex";
+    modalDiv1.style.display="none";
+    modalDiv2.style.display="flex";
+})
+
+closeModalButton.forEach(button=>{button.addEventListener('click', function(){
+    modal1.style.display="none";
+})
+
+modal1.addEventListener('click', function(e){
+    if(e.target===modal1){
+    modal1.style.display="none";}
+})})
+
+
