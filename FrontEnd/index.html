@@ -35,10 +35,10 @@
 	<section id="introduction">
 		<figure id ="introduction-image">
 			<img src="./assets/images/sophie-bluel.png" alt="">
-			<a class="editor-content js-modal" href="#"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>
+			<a class="editor-content open-js-modal" href="#"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>
 		</figure>
 		<article>
-			<a  href="#" class="editor-content js-modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>
+			<a  href="#" class="editor-content open-js-modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
@@ -46,7 +46,7 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets<a href="#modal1" class="editor-content js-modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a></h2>
+		<h2>Mes Projets<a href="#modal" class="editor-content open-js-modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a></h2>
 		<div class = filterbar>
 		<button class="filterbutton all-button">Tous</button>
 		<button class="filterbutton objects-button">Objets</button>
@@ -56,15 +56,40 @@
 		<div class="gallery">
 		</div>
 	</section>
-	<aside id = "modal1" class = "modal-wrapper" aria-hidden="true" role="dialog" aria-labelledby="modal-title" style="display:none">
-		<div id="modal-container" class="js-modal-stop">
-			<i class="fas fa-times"></i>
-			<h3>Galerie Photo</h3>
-			<div class="modal-gallery">
-				
+	<aside id = "modal"  aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+		<div id="modal-container">
+			<div class= "modal-icons">
+				<button class= "return-button"><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
+				<button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
 			</div>
-			<button class="submit-button">Ajouter une photo</button>
-			<p href="#">Supprimer la galerie</p>
+			<h3 id="modal-title">Galerie Photo</h3>
+			<div class="modal-gallery">
+			
+			</div>
+			<button class="add-photo-button">Ajouter une photo</button>
+			<p class="delete-gallery-link" href="#">Supprimer la galerie</p>
+		</div>
+		<div id="add-photo-container">
+			<div class= "modal-icons">
+				<button class= "return-button open-js-modal"><i class="fa-sharp fa-solid fa-arrow-left" ></i></button>
+				<button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
+			</div>
+			<h3>Ajout photo</h3>
+			<form id="add-photo-form" action='http://localhost:5678/api/works' method="post">
+				<div class="drag-area">
+					<i class="fa fa-image"></i>
+					<input type="file" id="actual-btn" name="ajouter une photo" value="ajouter une photo"
+					accept="image/png, image/jpeg" style="display:none">
+					<label for="actual-btn" class="input-btn">+ Ajouter photo</label>
+					<p class ="add-photo-infos">jpg, png : 4mo max</p>
+				</div>
+				<label for="title">Titre</label>
+				<input type="text" name="title">
+				<label for="category">Catégorie</label>
+				<select name="category" required></select>
+			</form>
+			<button class="confirm-photo-button">Valider</button>
+
 		</div>
 	</aside>
 	<section id="contact">
@@ -81,17 +106,7 @@
 		</form>
 	</section>
 
-	<aside class = "modal-wrapper-bis">
-		<div id = "add-photo-container">
-			<div id="modal-icons">
-			<i class="fa-sharp fa-solid fa-arrow-left"></i>
-			<i class="fas fa-times"></i>
-			</div>
-			<h3>Ajout photo</h3>
-			<form></form>
-			<button class="add-photo-button">Valider</button>
-		</div>
-	</aside>
+
 </main>
 
 <footer>
@@ -101,8 +116,6 @@
 		</ul>
 	</nav>
 </footer>
-<script src="script.js"></script>
-<script src="login.js"></script>
-<script type="module" src="modal.js"></script>
+<script type="module" src= "./script.js" ></script>
 </body>
 </html>

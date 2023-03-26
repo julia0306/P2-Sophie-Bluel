@@ -1,6 +1,5 @@
 // Je génère un formulaire de connexion fonctionnel
 
-
 const loginForm=document.querySelector(".login-form");
 
         // Je crée un eventListener pour écouter l'événement 'submit'

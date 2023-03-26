@@ -165,7 +165,7 @@ li:hover, a:hover{
 
 
 
-.js-modal{
+.open-js-modal{
 	display: none;
 	color:black;
 	font-size:14px;
@@ -175,17 +175,16 @@ li:hover, a:hover{
 	padding-bottom: 16px;;
 }
 
-.js-modal i{
+.open-js-modal i{
 	padding: 0 8px 0 0;
 	font-size: 1rem;
-	font-weight:400;
 }
 
-#portfolio .js-modal{
+#portfolio .open-js-modal{
 	margin-left: 24px;
 }
 
-#introduction-image .js-modal{
+#introduction-image .open-js-modal{
 	margin-left:55px
 }
 
@@ -244,7 +243,7 @@ li:hover, a:hover{
 }
 
 
-#contact input, .login-form input {
+#contact input, .login-form input, #modal input, select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
@@ -259,16 +258,23 @@ li:hover, a:hover{
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"], #login-submit, .submit-button {
+input[type="submit"], #login-submit, .add-photo-button, .confirm-photo-button {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
-	background-color: #1D6154;
 	margin : 2em auto ;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
 	padding: 8px;
+	border: none;
+}
+
+input[type="submit"], #login-submit, .add-photo-button{
+background-color: #1D6154;}
+
+#confirm-photo-button{
+	background-color: #A7A7A7;
 }
 
 footer nav ul {
@@ -297,9 +303,9 @@ footer nav ul {
 }
 
 /*CSS rules for modal */
-.modal-wrapper{
+#modal{
 	position:fixed;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: center;
 	top:0;
@@ -310,39 +316,35 @@ footer nav ul {
 
 }
 
-#modal-container{
-	overflow: auto;
-	max-width: calc(100vw - 20px);
-	max-height: calc(100vh - 20px);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	background-color: white;
-	border: 1px solid black;
-	padding: 48px;
-} 
+#modal-container
+{display: none};
 
 #add-photo-container{
-	position: absolute;
-	top:700px;
-	left: 23vw;
-	display: flex;
+	display:none;
+	gap:16px;}
+
+#modal-container,  #add-photo-container{
+	overflow: auto;
+	width:550px;
+	max-height: calc(100vh - 20px);
 	flex-direction: column;
-	justify-content: space-between;
+	align-items: center;
+	justify-content: flex-start;
 	background-color: white;
 	border: 1px solid black;
-	padding: 32px;
-}
+	padding:16px;
+} 
 
 #modal-container p{
 	color: #D65353;
 }
 
-.fa-times{
-	position:relative;
-	align-self: flex-end;
-	font-size: 1.5rem;
+#add-photo-container .return-button{
+	display: flex
+}
+
+#modal-container .return-button{
+	visibility: hidden;
 }
 
 .fa-times:hover, .modal-gallery, a:hover{
@@ -352,57 +354,130 @@ footer nav ul {
 	font-size:26px;
 }
 
+#add-photo-container input, select, #add-photo-container label{
+	margin: 0 48px;
+}
+#add-photo-container input{
+	margin-bottom: 16px;
+}
 .modal-gallery {
-	width: 90%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
 	border-bottom: 1px solid grey;
-	padding:32px 0;
+	margin:16px 0px;
+
+}
+
+.modal-figure{
+	width:100px;;
 }
 
 .modal-gallery img{
-	width: 100%;
-	height:120px;
+	height:90px;
+	width:100%;
 	object-fit: cover;
 }
 
-.fa-trash-can{
-	background-color: black;
-	color: white;
-	padding: 6px;
-	border-radius: 25%;
-	top:0;
-}
-.icon-div {
-	gap: 8px;
-	position: relative;
-	text-align: right;
-	top: -130px;
-	margin-right:8px ;
-}
-
-.fa-arrows-up-down-left-right{
+.maximize-btn{
 	visibility: hidden;
-	background-color: black;
-	color: white;
-	padding: 6px;
-	border-radius: 25%;
 }
 
-.modal-gallery figure:hover .fa-arrows-up-down-left-right{
+.modal-figure:hover .maximize-btn{
 	visibility: visible;
 }
 
 
-#modal-icons{
+.maximize-btn, .delete-btn{
+	color: white;
+	background-color: black;
+	padding: 3px;
+	border-radius: 25%;
+	top:0;
+}
+
+.icon-div {
+	gap: 8px;
+	position: relative;
+	text-align: right;
+	top: -100px;
+	margin-right:3px ;
+	height:0px;
+}
+
+
+.modal-gallery figure:hover .maximize-btn{
+	visibility: visible;
+}
+
+.modal-icons{
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	font-size: 1.5rem;
+	background-color: none;
 }
 
-.modal-wrapper-bis{
-	display: none;
+.modal-icons button{
+	background: none;
+	border: none;
+}
+
+
+
+#add-photo-container .return-button, #add-photo-container i{
+	visibility: visible;
+	display: flex;
+}
+
+/* Formulaire ajout photos */
+.drag-area{
+	height:160px;
+	background-color: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	margin: 30px 48px;
+}
+
+.fa-image{
+	color: grey;
+	font-size: 58px;
+}
+
+#add-photo-form{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-bottom: 48px;
+	border-bottom: 1px solid grey;
+}
+
+.input-btn{
+	border-radius: 25px;
+	background-color: #CBD6DC ;
+	color: #306685;
+	border: none;
+	padding: 8px 24px;
+}
+
+
+
+.confirm-photo-button{
+	background-color: #A7A7A7;
+	border: none;
+	margin: 24px 0px;
+}
+
+
+
+.modal-icons{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
