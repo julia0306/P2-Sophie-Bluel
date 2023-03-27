@@ -116,6 +116,7 @@ returnButton.addEventListener('click', function(){
     modalDiv2.style.display="none";
 })
 
+// J'affiche la modale 2 lorsque l'utilisateur clique sur le bouton "ajouter photo"
 const addPhotoButton=document.querySelector('.add-photo-button')
 addPhotoButton.addEventListener('click', function(){
     modal1.style.display="flex";
@@ -123,10 +124,11 @@ addPhotoButton.addEventListener('click', function(){
     modalDiv2.style.display="flex";
 })
 
+// Au clic sur la croix, je ferme la modale
 closeModalButton.forEach(button=>{button.addEventListener('click', function(){
     modal1.style.display="none";
 })
-
+// Je ferme la modale lorsque l'utilisateur clique en dehors de la modale 
 modal1.addEventListener('click', function(e){
     if(e.target===modal1){
     modal1.style.display="none";}
