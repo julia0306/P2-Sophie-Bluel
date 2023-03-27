@@ -268,10 +268,11 @@ input[type="submit"], #login-submit, .add-photo-button, .confirm-photo-button {
 	border-radius: 60px ;
 	padding: 8px;
 	border: none;
+	cursor: pointer;
 }
 
 input[type="submit"], #login-submit, .add-photo-button{
-background-color: #1D6154;}
+	background-color: #1D6154;}
 
 #confirm-photo-button{
 	background-color: #A7A7A7;
@@ -316,8 +317,8 @@ footer nav ul {
 
 }
 
-#modal-container
-{display: none};
+#modal-container{
+	display: none};
 
 #add-photo-container{
 	display:none;
@@ -348,18 +349,16 @@ footer nav ul {
 	visibility: hidden;
 }
 
-.fa-times:hover, .modal-gallery, a:hover{
+.fa-times:hover, .modal-gallery i:hover, .drag-area label, .input-button, .delete-gallery-link{
 	cursor: pointer;
 }
 #modal-container h3, #add-photo-container h3{
 	font-size:26px;
 }
 
-#add-photo-container input, select, #add-photo-container label{
-	margin: 0 48px;
-}
-#add-photo-container input{
-	margin-bottom: 16px;
+
+#add-photo-container input, #add-photo-container select{
+	margin: 8px 0 24px 0;
 }
 .modal-gallery {
 	width: 80%;
@@ -368,7 +367,7 @@ footer nav ul {
 	align-items: center;
 	gap: 20px;
 	border-bottom: 1px solid grey;
-	margin:16px 0px;
+	padding:24px 0px;
 
 }
 
@@ -441,7 +440,7 @@ footer nav ul {
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	margin: 30px 48px;
+	margin: 16px 0px;
 }
 
 .fa-image{
@@ -450,11 +449,11 @@ footer nav ul {
 }
 
 #add-photo-form{
-	width: 100%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding-bottom: 48px;
+	padding-bottom: 24px;
 	border-bottom: 1px solid grey;
 }
 
@@ -471,7 +470,7 @@ footer nav ul {
 .confirm-photo-button{
 	background-color: #A7A7A7;
 	border: none;
-	margin: 24px 0px;
+	margin: 24px 0px 16px 0px ;
 }
 
 

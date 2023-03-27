@@ -79,14 +79,14 @@
 				<div class="drag-area">
 					<i class="fa fa-image"></i>
 					<input type="file" id="actual-btn" name="ajouter une photo" value="ajouter une photo"
-					accept="image/png, image/jpeg" style="display:none">
+					accept="image/png, image/jpeg"style="display:none">
 					<label for="actual-btn" class="input-btn">+ Ajouter photo</label>
 					<p class ="add-photo-infos">jpg, png : 4mo max</p>
 				</div>
 				<label for="title">Titre</label>
-				<input type="text" name="title">
+				<input type="text" name="title" required>
 				<label for="category">Catégorie</label>
-				<select name="category" required></select>
+				<select id="category-selector" name="category" required><option value=""></option></select>
 			</form>
 			<button class="confirm-photo-button">Valider</button>
 

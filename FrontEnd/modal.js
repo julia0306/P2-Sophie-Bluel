@@ -26,11 +26,12 @@ export function editorAccess(){
 
 //J'affiche la galerie dans la modale 
 
-// Je récupère les travaux depuis l'API et je crée ma modale
+// Je récupère les travaux depuis l'API et je crée le contenu de ma modale
 async function getWorks(){
     const galleryResponse=await fetch('http://localhost:5678/api/works');
     const galleryImages = await galleryResponse.json();
-    function showGallery(galleryImages){
+    
+function showGallery(galleryImages){
         for (let i = 0; i < galleryImages.length; i++){
             const modalGallery=document.querySelector(".modal-gallery")
         const imageData=galleryImages[i];
@@ -53,11 +54,13 @@ async function getWorks(){
         </div>`;}
         const deleteButton=document.querySelectorAll(".delete-btn")
         console.log(deleteButton, "delete");
-        // Je récupère l'id du projet 
 
+
+//J'instaure la suppression des projets, au clic sur l'icône "corbeille"
 deleteButton.forEach(button => {
     button.addEventListener("click", function(e) {
         let btnClicked = e.target;
+            // Je récupère l'id du projet 
         let figureToDelete = btnClicked.parentNode.parentNode.parentNode.parentNode;
         const userToken=localStorage.getItem('token');
         console.log(figureToDelete,"ftd");
@@ -81,11 +84,14 @@ deleteButton.forEach(button => {
                 }})
         }
         deleteWorkfromGallery(workID)
+
     });
+
 })
         }
-    showGallery(galleryImages);}
-    getWorks()
+
+showGallery(galleryImages);}
+getWorks()
 
 
 // J'instaure l'alternance de modale en fonction du comportement de l'utilisateur
@@ -133,3 +139,29 @@ addPhotoButton.addEventListener('click', function(){
     modalContainer.style.display="none";
     addPhotoContainer.style.display="flex";
 })
+
+
+//Je mets en place le formulaire d'ajout de photos
+
+
+async function fetchCategories(){
+    // Je récupère la liste de catégories
+    const categoryResponse=await fetch ('http://localhost:5678/api/categories');
+    const categoryList=await categoryResponse.json();
+    console.log(categoryList);
+    const categorySelector=document.getElementById('category-selector')
+    // J'instaure l'affichage dynamique des catégories dans le formulaire 
+    function updateCategorySelector(categoryList){
+        for(let i=0; i<categoryList.length; i++){
+            const categoryNames=categoryList[i]
+            console.log(categoryNames)
+            const categoryOption=document.createElement('option');
+            categorySelector.appendChild(categoryOption);
+            categoryOption.value=categoryNames.id;
+            categoryOption.innerText=categoryNames.name;
+        }
+    }
+    updateCategorySelector(categoryList)
+}
+fetchCategories()
+
