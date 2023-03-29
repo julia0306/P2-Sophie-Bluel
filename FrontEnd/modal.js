@@ -42,7 +42,7 @@ function showGallery(galleryImages){
     modalFigure.appendChild(modalImage);
     modalImage.src=imageData.imageUrl;
     modalFigure.appendChild(modalCaption);
-    modalFigure.classList.add('.modal-figure');
+    modalFigure.classList.add('modal-figure');
     modalFigure.dataset.id=imageData.id;
     modalCaption.innerText="éditer";
     const iconDiv = document.createElement('div')
@@ -59,9 +59,10 @@ function showGallery(galleryImages){
 //J'instaure la suppression des projets, au clic sur l'icône "corbeille"
 deleteButton.forEach(button => {
     button.addEventListener("click", function(e) {
+        e.preventDefault;
         let btnClicked = e.target;
             // Je récupère l'id du projet 
-        let figureToDelete = btnClicked.parentNode.parentNode.parentNode.parentNode;
+        let figureToDelete = btnClicked.closest('.modal-figure');
         const userToken=localStorage.getItem('token');
         console.log(figureToDelete,"ftd");
         const workID=figureToDelete.dataset.id;
@@ -71,7 +72,7 @@ deleteButton.forEach(button => {
             await fetch('http://localhost:5678/api/works/'+ workID,{
                 method:'DELETE',
                 headers:{
-                    "Authorization": "Bearer" +" " + userToken
+                    "Authorization": "Bearer " + userToken
                 }
             })
             .then ((response)=>{
@@ -158,6 +159,7 @@ async function fetchCategories(){
             const categoryNames=categoryList[i]
             console.log(categoryNames)
             const categoryOption=document.createElement('option');
+            categoryOption.classList.add('option-value')
             categorySelector.appendChild(categoryOption);
             categoryOption.value=categoryNames.id;
             categoryOption.innerText=categoryNames.name;
@@ -167,3 +169,75 @@ async function fetchCategories(){
 }
 fetchCategories()
 
+//Je gère la modale d'ajout de photos
+const input= document.getElementById('actual-btn');
+const output=document.querySelector('.photo-output-area');
+let imagesArray = [];
+input.addEventListener("change",() => {
+    const inputZone= document.querySelector('.input-zone')
+    inputZone.style.display="none";
+    output.style.display="block";
+    const file = input.files;
+    imagesArray.push(file[0]);
+    output.addEventListener('click', function(){
+        output.style.display="none";
+        inputZone.style.display="flex";
+        imagesArray=""
+    })
+    displayImages()
+})
+
+function displayImages(){
+    let images="";
+    imagesArray.forEach((image) => {
+        images += `<div class="uploaded-image">
+                <img id="uploaded-image" src="${URL.createObjectURL(image)}" alt="image">
+              </div>`
+    })
+    output.innerHTML=images
+}
+
+
+        
+
+
+// Je réinitialise le formulaire lorsque je le quitte:
+
+
+// Envoi du formulaire vie API
+
+const addPhotoForm=document.getElementById("add-photo-form")
+addPhotoForm.addEventListener('submit',function (e){
+    e.preventDefault;
+    console.log('form submitted')
+    const userToken=localStorage.getItem('token');
+    const imageInput=document.getElementById('actual-btn');
+    const uploadedImage= imageInput.files[0];
+    const title = document.getElementById("title");
+    const titleValue= title.value;
+    const categoryId = document.getElementById("category-selector");
+    const categoryNumber=categoryId.value;
+    const formData = new FormData();
+    formData.append("image", uploadedImage);
+    formData.append("title", titleValue);
+    formData.append("category", categoryNumber);
+    async function addPhotoToAPI(){
+    await fetch('http://localhost:5678/api/works', {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + userToken,
+                accept: "application/json"},
+            body: formData,
+    })
+    .then ((response)=>{
+        if(response.status === 401){
+            alert("Vous n'êtes pas autorisé à ajouter ce projet")}
+        if(response.status === 400){
+            alert("Cette action ne peut être réalisée")}
+        if(response.status === 500){
+            alert("Une erreur inattendue est survenue")}    
+        if(response.status === 200){
+            alert("Le projet a bien été ajouté")
+        }})}
+        addPhotoToAPI()
+    })
