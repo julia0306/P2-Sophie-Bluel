@@ -58,6 +58,11 @@ body {
 	justify-content: space-between;
 	margin: 50px 0
 }
+
+.spacer{
+	display: none;
+	height:32px;
+}
 section {
 	margin: 50px 0
 }
@@ -109,21 +114,17 @@ li:hover, a:hover{
 
 
 .edit-banner{
+	position: absolute;
+	left:0px;
+	top:0px;
 	width:100%;
 	background-color: black;
 	display:none;
 	gap:1vw;
-	margin-top: 0;
-	margin-bottom: 20px;
 	padding:8px 0;
 	color:white;
 	justify-content: center;
 	align-items: center;
-}
-
-#navbar{
-	display: flex;
-	justify-content: space-between;
 }
 
 #logout-btn{
@@ -162,8 +163,6 @@ li:hover, a:hover{
 	text-align: center;
 	margin-bottom: 1em;
 }
-
-
 
 .open-js-modal{
 	display: none;
@@ -206,7 +205,7 @@ li:hover, a:hover{
 
 }
 
-.filterbutton:hover{
+.green-button, .filterbutton:hover, input[type="submit"], #login-submit, .add-photo-button{
 	background-color: #1D6154;
 	color:white;
 	cursor: pointer;
@@ -258,7 +257,7 @@ li:hover, a:hover{
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"], #login-submit, .add-photo-button, .confirm-photo-button {
+input[type="submit"], #login-submit, .add-photo-button, .confirm-photo-button, .green-button {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -271,8 +270,9 @@ input[type="submit"], #login-submit, .add-photo-button, .confirm-photo-button {
 	cursor: pointer;
 }
 
-input[type="submit"], #login-submit, .add-photo-button{
-	background-color: #1D6154;}
+.green-button{
+	margin: 1em auto
+}
 
 footer nav ul {
 	display: flex;
@@ -283,15 +283,9 @@ footer nav ul {
 /* CSS rules for login page */
 
 #login{
-	height:95vh;
-	width:379px;
+	height:90vh;
+	width:380px;
 	margin: auto;
-}
-
-
-#login-submit:hover{
-	font-weight: bold;
-	cursor: pointer;
 }
 
 #login a{
@@ -299,7 +293,7 @@ footer nav ul {
 	text-decoration: underline;
 }
 
-/*CSS rules for modal */
+/*CSS RULES FOR MODAL WINDOW */
 #modal{
 	position:fixed;
 	display: none;
@@ -309,21 +303,13 @@ footer nav ul {
 	left:0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
-
 }
 
-#modal-container{
-	display: none};
-
-#add-photo-container{
-	display:none;
-	gap:16px;}
-
 #modal-container,  #add-photo-container{
+	display: none;
 	overflow: auto;
 	width: 500px;
-	height: 550px;
+	max-height: calc(100vh - 20px);
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
@@ -332,30 +318,27 @@ footer nav ul {
 	padding:16px;
 } 
 
+#modal-container h3, #add-photo-container h3{
+	font-size:26px;
+}
+
+.modal-icons{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.5rem;
+}
+
+.fa-times:hover, .fa-arrow-left:hover, .modal-gallery i:hover, .drag-area label, .input-button, .delete-gallery-link{
+	cursor: pointer;
+}
+
+/* Gallery modal */
 
 #modal-container p{
 	color: #D65353;
 }
 
-#add-photo-container .return-button{
-	display: flex
-}
-
-#modal-container .return-button{
-	visibility: hidden;
-}
-
-.fa-times:hover, .modal-gallery i:hover, .drag-area label, .input-button, .delete-gallery-link{
-	cursor: pointer;
-}
-#modal-container h3, #add-photo-container h3{
-	font-size:26px;
-}
-
-
-#add-photo-container input, #add-photo-container select{
-	margin: 8px 0 24px 0;
-}
 .modal-gallery {
 	width: 90%;
 	display: flex;
@@ -377,15 +360,6 @@ footer nav ul {
 	object-fit: cover;
 }
 
-.maximize-btn{
-	visibility: hidden;
-}
-
-.modal-figure:hover .maximize-btn{
-	visibility: visible;
-}
-
-
 .maximize-btn, .delete-btn{
 	color: white;
 	background-color: black;
@@ -403,17 +377,19 @@ footer nav ul {
 	height:0px;
 }
 
+#modal-container .return-button, .maximize-btn{
+	visibility: hidden;
+}
 
-.modal-gallery figure:hover .maximize-btn{
+.modal-figure:hover .maximize-btn{
 	visibility: visible;
 }
 
-.modal-icons{
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	font-size: 1.5rem;
-	background-color: none;
+
+/* Formulaire ajout photos */
+
+#add-photo-container input, #add-photo-container select{
+	margin: 8px 0 24px 0;
 }
 
 .modal-icons button{
@@ -426,20 +402,26 @@ footer nav ul {
 	display: flex;
 }
 
-/* Formulaire ajout photos */
+#add-photo-container .return-button{
+	display: flex
+}
+
+/* Preview space */
 .drag-area{
-	height:160px;
+	height:150px;
 	background-color: #E8F1F6;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	margin: 16px 0px;
+	border-radius: 5px;
 }
 
 .fa-image{
-	color: grey;
-	font-size: 58px;
+	color: #B9C5CC;
+	font-size: 48px;
+	font-weight: 100;
 }
 
 #add-photo-form{
@@ -455,24 +437,21 @@ footer nav ul {
 	background-color: #CBD6DC ;
 	color: #306685;
 	border: none;
-	padding: 8px 24px;
+	font-weight: 700;
+	padding: 10px 22px;
+	opacity: 70%;
 }
-
-
 
 .confirm-photo-button{
 	background-color: #A7A7A7;
 	border: none;
 	margin:0;
 	align-self: center;
+	opacity: 70%;
 }
 
-.modal-icons{
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	font-size: 1.5rem;
-	background-color: none;
+.confirm-photo-button:hover, .input-btn:hover{
+	opacity: 100%;
 }
 
 hr{
@@ -482,25 +461,17 @@ hr{
 }
 
 .input-zone{
-	height:100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 }
-output{
-  width: 100%;
+
+output, output .uploaded-image, output img, .input-zone{
+	height: 100%;
 }
 
-output .image{
-  height: 150px;
-  width: 300px;
-  display: flex;
-  justify-content: center;
-}
-
-output .image img{
-  height: 100%;
-  width: 50%;
-  object-fit: cover;
+output img{
+  width:200px;
+  object-fit: contain;
 }
