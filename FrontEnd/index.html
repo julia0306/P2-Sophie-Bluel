@@ -57,7 +57,7 @@
         <div class="gallery" id="test">
         </div>
     </section>
-    <aside id = "modal"  aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <aside id = "modal">
         <div id="modal-container">
             <div class= "modal-icons">
                 <button class= "return-button "><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
@@ -68,7 +68,7 @@
             
             </div>
             <button class="add-photo-button">Ajouter une photo</button>
-            <p class="delete-gallery-link" href="#">Supprimer la galerie</p>
+            <p class="delete-gallery-link">Supprimer la galerie</p>
         </div>
         <div id="add-photo-container">
             <div class= "modal-icons">
@@ -88,10 +88,10 @@
                     </div>
                     <output class="photo-output-area" style="display:none"></output>
                 </div>
-                <label for="title">Titre</label>
-                <input type="text" id ="title-field" class="mandatory-fields" name="title" id="title" required>
-                <label for="category">Catégorie</label>
-                <select id="category-selector" class="mandatory-fields" name="category" required><option value=""></option></select>
+                <label for="title-field">Titre</label>
+                <input type="text" id ="title-field" class="mandatory-fields" name="title" required>
+                <label for="category-selector">Catégorie</label>
+                <select id="category-selector" class="mandatory-fields" name="category" required><option label= " "></option></select>
                 <hr>
                 <button class="confirm-photo-button">Valider</button>
             </form>
