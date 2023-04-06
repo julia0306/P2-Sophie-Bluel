@@ -1,4 +1,4 @@
-                                        // JE RECUPERE LES TRAVAUX DEPUIS LE BACK-END 
+                        // JE RECUPERE LES TRAVAUX DEPUIS LE BACK-END 
 
     const worksURL= 'http://localhost:5678/api/works'
     const getWorks=await fetch(worksURL);
@@ -11,25 +11,25 @@ function showGallery(galleryImages){
         const imageData=galleryImages[i];
 
     //Je crée un contenant pour l'image et ses dépendances
-    const galleryFigure = document.createElement("figure");
-    const galleryImage = document.createElement("img");
-    galleryImage.src=imageData.imageUrl;
-    const imageTitle = document.createElement("figcaption");
-    imageTitle.innerText = imageData.title;
-    galleryFigure.classList.add("filterType", imageData.categoryId);
+        const galleryFigure = document.createElement("figure");
+        const galleryImage = document.createElement("img");
+        galleryImage.src=imageData.imageUrl;
+        const imageTitle = document.createElement("figcaption");
+        imageTitle.innerText = imageData.title;
+        galleryFigure.classList.add("filterType", imageData.categoryId);
 
-// Je rattache les balises au DOM
-    const gallery = document.querySelector(".gallery");
-    gallery.appendChild(galleryFigure);
-    galleryFigure.appendChild(galleryImage);
-    galleryFigure.appendChild(imageTitle);
-    galleryFigure.dataset.id=imageData.id;
-    galleryImage.alt=imageData.title;};
+    // Je rattache les balises au DOM
+        const gallery = document.querySelector(".gallery");
+        gallery.appendChild(galleryFigure);
+        galleryFigure.appendChild(galleryImage);
+        galleryFigure.appendChild(imageTitle);
+        galleryFigure.dataset.id=imageData.id;
+        galleryImage.alt=imageData.title;};
     }
     showGallery(galleryImages);
     
 
-                                        // JE METS EN PLACE LES FILTRES 
+                        // JE METS EN PLACE LES FILTRES 
 
 // Je crée un eventListener pour écouter l'événement 'click'
 //Je modifie l'innerHTML pour afficher seulement les images qui correspondent au filtre
@@ -65,9 +65,9 @@ function showGallery(galleryImages){
         showGallery(hotelsGallery);
 });
 
-                                        //JE GENERE UN FORMULAIRE DE CONNEXION FONCTIONNEL (cf. login.js)
+                        //JE GENERE UN FORMULAIRE DE CONNEXION FONCTIONNEL (cf. login.js)
 
-                                        // JE METS EN PLACE L'AFFICHAGE DU MODE "ADMIN"
+                        // JE METS EN PLACE L'AFFICHAGE DU MODE "ADMIN"
 
 function editorAccess(){
     const editorContent=document.querySelectorAll('.editor-content');
@@ -95,7 +95,7 @@ function editorAccess(){
     }
 editorAccess()
 
-                                        // JE METS EN PLACE LE PREMIER AFFICHAGE DE LA FENETRE MODALE 
+                        // JE METS EN PLACE LE PREMIER AFFICHAGE DE LA FENETRE MODALE 
 
 // J'affiche les images en provenance du Backend dans la galerie de la modale: 
 function showModalGallery(galleryImages){
@@ -120,15 +120,15 @@ function showModalGallery(galleryImages){
         <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
         </div>`;}
 
-    // J'instaure la fonction "suppression de l'ensemble des travaux" 
-        const deleteButton=document.querySelectorAll(".delete-btn")
-        const userToken=localStorage.getItem('token');
-        const modalFigures=document.querySelectorAll('.modal-figure')
-        const modalGalleryDeletionLink = document.querySelector('.delete-gallery-link')
-modalGalleryDeletionLink.addEventListener('click', function (e){
-    e.preventDefault();
-    deleteAllWorks();}
-    )
+// J'instaure la fonction "suppression de l'ensemble des travaux" 
+    const deleteButton=document.querySelectorAll(".delete-btn")
+    const userToken=localStorage.getItem('token');
+    const modalFigures=document.querySelectorAll('.modal-figure')
+    const modalGalleryDeletionLink = document.querySelector('.delete-gallery-link')
+    modalGalleryDeletionLink.addEventListener('click', function (e){
+        e.preventDefault();
+        deleteAllWorks();}
+        )
 
     async function deleteAllWorks(){
         if (confirm("Voulez-vous vraiment supprimer l'ensemble des projets ?")){
@@ -186,7 +186,7 @@ deleteButton.forEach(button => {
 //J'exécute la fonction qui permet l'affichage de la galerie dans la modale: 
 showModalGallery(galleryImages);
 
-                                        // JE METS EN PLACE LE SECOND AFFICHAGE DE LA FENETRE MODALE
+                        // JE METS EN PLACE LE SECOND AFFICHAGE DE LA FENETRE MODALE
 
 // J'instaure la fonction qui permet d'envoyer le formulaire d'ajout de photos à l'API
 const addPhotoForm=document.getElementById("add-photo-form")
@@ -198,7 +198,7 @@ addPhotoForm.addEventListener('submit',function (e){
 
     // J'envoie ma requête à l'API:
     async function addPhotoToAPI(){
-        const userToken=localStorage.getItem('token');
+    const userToken=localStorage.getItem('token');
     const imageInput=document.getElementById('actual-btn');
     const uploadedImage= imageInput.files[0];
     const title = document.getElementById("title-field");
@@ -242,7 +242,7 @@ addPhotoForm.addEventListener('submit',function (e){
         addPhotoForm.reset();
     }
 
-                                        // J'INSTAURE L'ALTERNANCE DES AFFICHAGES DE LA MODALE EN FONCTION DU COMPORTEMENT DE L'UTILISATEUR
+                        // J'INSTAURE L'ALTERNANCE DES AFFICHAGES DE LA MODALE EN FONCTION DU COMPORTEMENT DE L'UTILISATEUR
   
 // J'instaure l'affichage par défaut de la modale
 
@@ -279,7 +279,7 @@ fullModal.addEventListener('click', function(e){
 }
 })})
 
-                                        // JE METS EN PLACE LES FONCTIONNALITES DU FORMULAIRE 
+                        // JE METS EN PLACE LES FONCTIONNALITES DU FORMULAIRE 
 
 //Je mets en place le sélecteur de catégories à l'ajout de nouvelles photos : 
 

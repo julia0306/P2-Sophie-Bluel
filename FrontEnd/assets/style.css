@@ -352,11 +352,10 @@ footer nav ul {
 	width: 90%;
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
 	gap: 20px;
+	align-items: center;
 	border-bottom: 1px solid grey;
 	padding:24px 0px;
-
 }
 
 .modal-figure{
@@ -378,8 +377,8 @@ footer nav ul {
 }
 
 .icon-div {
-	gap: 8px;
 	position: relative;
+	gap: 8px;
 	text-align: right;
 	top: -100px;
 	margin-right:4px ;
@@ -441,18 +440,18 @@ footer nav ul {
 
 .input-btn{
 	border-radius: 25px;
+	border: none;
+	padding: 10px 22px;
 	background-color: #CBD6DC ;
 	color: #306685;
-	border: none;
 	font-weight: 700;
-	padding: 10px 22px;
 	opacity: 70%;
 }
 
 .confirm-photo-button{
-	background-color: #A7A7A7;
-	border: none;
 	margin:0;
+	border: none;
+	background-color: #A7A7A7;
 	align-self: center;
 	opacity: 70%;
 }
@@ -463,8 +462,6 @@ footer nav ul {
 
 hr{
 	margin:16px 0 30px 0;
-	padding:0;
-	align-self: normal;
 }
 
 .input-zone{
@@ -479,6 +476,6 @@ output, output .uploaded-image, output img, .input-zone{
 }
 
 output img{
-  width:200px;
-  object-fit: contain;
+	width:200px;
+	object-fit: contain;
 }
