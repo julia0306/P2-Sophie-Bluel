@@ -1,4 +1,4 @@
-// Je génère un formulaire de connexion fonctionnel
+// JE GENERE UN FORMULAIRE DE CONNEXION FONCTIONNEL
 
 const loginForm=document.querySelector(".login-form");
 
@@ -8,7 +8,6 @@ loginForm.addEventListener('submit', function(e){
     let user={
         email:document.querySelector("[name=email]").value,
         password: document.querySelector("[name=password]").value}
-    console.log(user,'user');
 
         // J'envoie les données à l'API
     fetch('http://localhost:5678/api/users/login',{
@@ -39,4 +38,9 @@ loginForm.addEventListener('submit', function(e){
             console.log(error, 'error')})
 
 })
+
+
+
+
+
 

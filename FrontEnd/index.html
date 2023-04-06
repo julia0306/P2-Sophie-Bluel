@@ -12,13 +12,13 @@
     <script src="https://kit.fontawesome.com/b932d69e5e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<header>
     <div class="editor-content edit-banner">
         <i class="fa-solid fa-pen-to-square"></i>
         <p>Mode édition</p>
         <button id="banner-btn">publier les changements</button>
     </div>
     <div class="editor-content spacer"></div>
-<header>
     <div id="navbar">
         <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
         <nav>
@@ -60,7 +60,7 @@
     <aside id = "modal"  aria-hidden="true" role="dialog" aria-labelledby="modal-title">
         <div id="modal-container">
             <div class= "modal-icons">
-                <button class= "return-button"><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
+                <button class= "return-button "><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
                 <button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
             </div>
             <h3 id="modal-title">Galerie Photo</h3>
@@ -72,16 +72,16 @@
         </div>
         <div id="add-photo-container">
             <div class= "modal-icons">
-                <button class= "return-button open-js-modal"><i class="fa-sharp fa-solid fa-arrow-left" ></i></button>
+                <button class= "return-button RB open-js-modal"><i class="fa-sharp fa-solid fa-arrow-left" ></i></button>
                 <button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
             </div>
             <h3>Ajout photo</h3>
 
             <form id="add-photo-form">
-                <div class="drag-area">
+                <div class="preview-area">
                     <div class="input-zone">
                     <i class="fa fa-image"></i>
-                    <input type="file" id="actual-btn" name="actual-btn"
+                    <input type="file" id="actual-btn" class="mandatory-fields" name="actual-btn"
                     accept=".png, .jpeg" style="display: none;">
                     <label for="actual-btn" class="input-btn">+ Ajouter photo</label>
                     <p class ="add-photo-infos">jpg, png : 4mo max</p>
@@ -89,9 +89,9 @@
                     <output class="photo-output-area" style="display:none"></output>
                 </div>
                 <label for="title">Titre</label>
-                <input type="text" name="title" id="title" required>
+                <input type="text" id ="title-field" class="mandatory-fields" name="title" id="title" required>
                 <label for="category">Catégorie</label>
-                <select id="category-selector" name="category" required><option value=""></option></select>
+                <select id="category-selector" class="mandatory-fields" name="category" required><option value=""></option></select>
                 <hr>
                 <button class="confirm-photo-button">Valider</button>
             </form>
