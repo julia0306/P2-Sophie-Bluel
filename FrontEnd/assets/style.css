@@ -112,7 +112,7 @@ li:hover, a:hover{
 	font-weight: 900;
 }
 
-/* EDITOR MODE CSS RULES */
+
 .edit-banner{
 	position: absolute;
 	left:0px;
@@ -134,32 +134,6 @@ li:hover, a:hover{
 	border-radius: 25px;
 	padding: 8px 16px;
 }
-
-.open-js-modal{
-	display: none;
-	color:black;
-	font-size:14px;
-	font-family: 'Work Sans';
-	font-weight: 400;
-	align-items: center;
-	padding-bottom: 16px;;
-}
-
-.open-js-modal i{
-	padding: 0 8px 0 0;
-	font-size: 1rem;
-}
-
-#portfolio .open-js-modal{
-	margin-left: 24px;
-}
-
-#introduction-image .open-js-modal{
-	margin-left:55px
-}
-
-/* INTRODUCTION SECTION */
-
 #introduction {
 	display: flex;
 	align-items: center;
@@ -185,13 +159,33 @@ li:hover, a:hover{
 #introduction p {
 	margin-bottom: 0.5em;
 }
-
-
-/*  PORTFOLIO SECTION */
-
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+}
+
+.edit-link{
+	display: none;
+	color:black;
+	font-size:14px;
+	font-family: 'Work Sans';
+	font-weight: 400;
+	align-items: center;
+	padding-bottom: 16px;
+}
+
+
+.edit-link i{
+	padding: 0 8px 0 0;
+	font-size: 1rem;
+}
+
+#portfolio .edit-link{
+	margin-left: 24px;
+}
+
+#introduction-image .edit-link{
+	margin-left:55px
 }
 
 .filterbar{
@@ -218,7 +212,7 @@ li:hover, a:hover{
 	cursor: pointer;
 }
 
-.gallery {
+#gallery {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -226,13 +220,10 @@ li:hover, a:hover{
 	grid-row-gap: 20px;
 }
 
-.gallery img {
+#gallery img {
 	width: 100%;
 
 }
-
-
-/* CONTACT SECTION */
 #contact {
 	width: 50%;
 	margin: auto;
@@ -250,6 +241,7 @@ li:hover, a:hover{
 	display: flex;
 	flex-direction: column;
 }
+
 
 #contact input, .login-form input, #modal input, select {
 	height: 50px;
@@ -270,7 +262,7 @@ input[type="submit"], #login-submit, .add-photo-button, .confirm-photo-button, .
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
-	margin : 2em auto ;
+	margin : 1.5em auto ;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
@@ -289,7 +281,7 @@ footer nav ul {
 	margin: 2em
 }
 
-/* CSS RULES FOR LOGIN PAGE */
+/* CSS rules for login page */
 
 #login{
 	height:90vh;
@@ -317,8 +309,8 @@ footer nav ul {
 #modal-container,  #add-photo-container{
 	display: none;
 	overflow: auto;
-	width: 500px;
-	max-height: calc(100vh - 50px);
+	width: 450px;
+	max-height: calc(100vh - 20px);
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
@@ -338,31 +330,32 @@ footer nav ul {
 	font-size: 1.5rem;
 }
 
-.fa-times:hover, .fa-arrow-left:hover, .modal-gallery i:hover, .drag-area label, .input-button, .delete-gallery-link{
+.fa-times:hover, .fa-arrow-left:hover, #modal-gallery i:hover, #preview-div label, .input-button, .delete-gallery-link{
 	cursor: pointer;
 }
 
-/* Modal gallery view*/
+/* Gallery modal */
 
 #modal-container p{
 	color: #D65353;
 }
 
-.modal-gallery {
+#modal-gallery {
 	width: 90%;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
 	align-items: center;
+	gap: 20px;
 	border-bottom: 1px solid grey;
 	padding:24px 0px;
+
 }
 
 .modal-figure{
 	width:16%;
 }
 
-.modal-gallery img{
+#modal-gallery img{
 	height:90px;
 	width:100%;
 	object-fit: cover;
@@ -377,8 +370,8 @@ footer nav ul {
 }
 
 .icon-div {
-	position: relative;
 	gap: 8px;
+	position: relative;
 	text-align: right;
 	top: -100px;
 	margin-right:4px ;
@@ -394,7 +387,7 @@ footer nav ul {
 }
 
 
-/* Add-photos modal */
+/* Formulaire ajout photos */
 
 #add-photo-container input, #add-photo-container select{
 	margin: 8px 0 24px 0;
@@ -414,14 +407,15 @@ footer nav ul {
 	display: flex
 }
 
-.preview-area{
+/* Preview space */
+#preview-div{
 	height:150px;
 	background-color: #E8F1F6;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	margin: 16px 0px;
+	margin: 16px 0 8px 0;
 	border-radius: 5px;
 }
 
@@ -436,46 +430,63 @@ footer nav ul {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding-bottom: 16px;
 }
 
-.input-btn{
+#input-btn{
 	border-radius: 25px;
-	border: none;
-	padding: 10px 22px;
 	background-color: #CBD6DC ;
 	color: #306685;
+	border: none;
 	font-weight: 700;
+	padding: 10px 22px;
 	opacity: 70%;
 }
 
 .confirm-photo-button{
-	margin:0;
-	border: none;
 	background-color: #A7A7A7;
+	border: none;
+	margin:0;
 	align-self: center;
 	opacity: 70%;
 }
 
-.confirm-photo-button:hover, .input-btn:hover{
+.confirm-photo-button:hover, #input-btn:hover{
 	opacity: 100%;
 }
 
 hr{
 	margin:16px 0 30px 0;
+	padding:0;
+	align-self: normal;
 }
 
-.input-zone{
+#input-zone{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 }
 
-output, output .uploaded-image, output img, .input-zone{
+output, output .uploaded-image, output img, #input-zone{
 	height: 100%;
 }
 
 output img{
-	width:200px;
-	object-fit: contain;
+  object-fit: contain;
+}
+
+.red-warning{
+	color: red;
+	font-weight: 600;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.invisible-items{
+	display: none;
+}
+
+.visible-items{
+	display: flex;
 }
