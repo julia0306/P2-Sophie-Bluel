@@ -12,13 +12,17 @@
     <script src="https://kit.fontawesome.com/b932d69e5e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<header>
     <div class="editor-content edit-banner">
+        <!-- Cette div apparaitra ou non, en fonction de l'authentification de l'utilisateur (cf editmode.js) -->
         <i class="fa-solid fa-pen-to-square"></i>
         <p>Mode édition</p>
         <button id="banner-btn">publier les changements</button>
     </div>
-    <div class="editor-content spacer"></div>
-<header>
+    <div id="spacer" class="editor-content">
+        <!-- Cette div a pour fonction d'espacer le contenu lorsque le mode édition est activé -->
+    </div>
     <div id="navbar">
         <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
         <nav>
@@ -27,7 +31,9 @@
                 <li><a href=#contact>contact</a></li>
                 <li id="login-btn"><a href=./login.html>login</a></li>
                 <li id="logout-btn"><a href=./index.html>logout</a></li>
-                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+                <li>
+                    <img src="./assets/icons/instagram.png" alt="Instagram">
+                </li>
             </ul>
         </nav>
     </div>
@@ -35,11 +41,17 @@
 <main>
     <section id="introduction">
         <figure id ="introduction-image">
-            <img src="./assets/images/sophie-bluel.png" alt="">
-            <a href="#" class="editor-content edit-link" ><i class="fa-solid fa-pen-to-square"></i>Modifier</a>
+            <img src="./assets/images/sophie-bluel.png" alt="profile-picture">
+            <a href="#" class="editor-content edit-link" >
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Modifier</p>
+            </a>
         </figure>
         <article>
-            <a  href="#" class="editor-content edit-link"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>
+            <a  href="#" class="editor-content edit-link">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Modifier</p>
+            </a>
             <h2>Designer d'espace</h2>
             <p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
             <p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
@@ -47,58 +59,81 @@
         </article>
     </section>
     <section id="portfolio">
-        <h2>Mes Projets<a href="#modal" class="editor-content edit-link open-js-modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a></h2>
-        <div class = filterbar>
-        <button class="filterbutton all-button">Tous</button>
-        <button class="filterbutton objects-button">Objets</button>
-        <button class="filterbutton appartments-button">Appartements</button>
-        <button class="filterbutton hotels-button">Hôtels & restaurants</button>
+        <div id="projects-title">
+            <h2>Mes Projets</h2>
+            <a href="#modal" class="editor-content edit-link open-js-modal">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Modifier</p>
+            </a>
+        </div>
+        <div id= "filterbar">
+            <button class="filterbutton all-button">Tous</button>
+            <button class="filterbutton objects-button">Objets</button>
+            <button class="filterbutton appartments-button">Appartements</button>
+            <button class="filterbutton hotels-button">Hôtels & restaurants</button>
         </div>
         <div id="gallery">
+            <!-- L'affichage de la gallerie est permis grâce au fichier script.js -->
         </div>
-    </section>
-    <aside id="modal">
-        <div id="modal-container">
-            <div class= "modal-icons">
-                <button class= "return-button"><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
-                <button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
-            </div>
-            <h3 id="modal-title">Galerie Photo</h3>
-            <div id="modal-gallery">
-            </div>
-            <button class="add-photo-button">Ajouter une photo</button>
-            <p class="delete-gallery-link">Supprimer la galerie</p>
-        </div>
-        <div id="add-photo-container">
-            <div class= "modal-icons">
-                <button class= "return-button RB open-js-modal"><i class="fa-sharp fa-solid fa-arrow-left" ></i></button>
-                <button class= "close-button"><i class="fas fa-times close-js-modal"></i></button>
-            </div>
-            <h3>Ajout photo</h3>
-
-            <form id="add-photo-form">
-                <div id="preview-div">
-                    <div id="input-zone">
-                    <i class="fa fa-image"></i>
-                    <input type="file" id="photo-input-button" class="mandatory-fields invisible-items" name="photo-input-button"
-                    accept=".png, .jpeg" >
-                    <label for="photo-input-button" id="input-btn">+ Ajouter photo</label>
-                    <p>jpg, png : 4mo max</p>
-                    </div>
-                    <output id="image-preview-zone" class="invisible-items"></output>
+        <aside id="modal" class="invisible-items">
+            <!-- L'affichage de la modale est contrôlé par le fichier modal.js -->
+            <div id="modal-container" class="invisible-items">
+                <div class="modal-title-zone">
+                    <h3 class="modal-title">Galerie Photo</h3>
+                    <div class= "modal-icons">
+                        <button class= "return-button">
+                            <i class="fa-sharp fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button class= "close-button">
+                            <i class="fas fa-times close-js-modal"></i>
+                        </button>
+                    </div>    
                 </div>
-                <p id="file-size-warning" class="red-warning invisible-items">Votre fichier dépasse la taille maximale autorisée.</p>
-                <label for="title">Titre</label>
-                <input type="text" name="title" id="title-field" class="mandatory-fields" required>
-                <label for="category-selector">Catégorie</label>
-                <select id="category-selector" name="category" class="mandatory-fields" required><option value=""></option></select>
-                <hr>
-                <button class="confirm-photo-button">Valider</button>
-            </form>
-            
+                <div id="modal-gallery">
+                    <!-- Cette div sera générée de manière dynamique grâce au fichier script.js -->
+                </div>
+                <button class="add-photo-button">Ajouter une photo</button>
+                <p class="delete-gallery-link">Supprimer la galerie</p>
+            </div>
+            <div id="add-photo-container" class="invisible-items">
+                <div class="modal-title-zone">
+                    <h3 class="modal-title">Ajout photo</h3>
+                    <div class= "modal-icons">
+                        <button class= "return-button RB open-js-modal">
+                            <i class="fa-sharp fa-solid fa-arrow-left" ></i>
+                        </button>
+                        <button class= "close-button">
+                            <i class="fas fa-times close-js-modal"></i>
+                        </button>
+                    </div>
+                </div>          
+                <form id="add-photo-form">
+                    <div id="preview-div">
+                        <div id="input-zone">
+                            <i class="fa fa-image"></i>
+                            <input type="file" id="photo-input-button" class="mandatory-fields invisible-items" name="photo-input-button"
+                            accept=".png, .jpeg" >
+                            <label for="photo-input-button" id="input-btn">+ Ajouter photo</label>
+                            <p>jpg, png : 4mo max</p>
+                        </div>
+                        <output id="image-preview-zone" class="invisible-items"></output>
+                    </div>
+                    <p id="file-size-warning" class="red-warning invisible-items">Votre fichier dépasse la taille maximale autorisée.</p>
+                    <!-- Le message d'erreur ci-dessus est généré par le fichier script.js si le fichier uploadé dépasse la taille maximale autorisée -->
+                    <label for="title-field">Titre</label>
+                    <input type="text" name="title" id="title-field" class="mandatory-fields" required>
+                    <label for="category-selector">Catégorie</label>
+                    <select id="category-selector" name="category" class="mandatory-fields" required>
+                        <option label=" "></option>
+                        <!-- L'affichage des catégories dans le formulaire est généré de manière dynamique grâce à la fonction displayCategoriesInForm() du fichier modal.js -->
+                    </select>
+                    <hr>
+                    <button class="confirm-photo-button">Valider</button>
+                </form>
+            </div>
+        </aside>
+    </section>
 
-        </div>
-    </aside>
     <section id="contact">
         <h2>Contact</h2>
         <p>Vous avez un projet ? Discutons-en !</p>
@@ -121,9 +156,12 @@
         </ul>
     </nav>
 </footer>
-<script type="module" src= "./script.js" ></script>
-<script src="./modal.js"></script>
+<script src="./variables.js"></script>
+<script src= "./main.js" ></script>
+<script src="./filters.js"></script>
 <script src="./editmode.js"></script>
+<script src="./modalwindow.js"></script>
+<script src="./modalcontent.js"></script>
 </body>
 </html>
 
