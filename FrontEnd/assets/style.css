@@ -34,7 +34,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	display: none
 }
 
-h1, #navbar, nav ul, .visible-items, #introduction, #filterbar, #projects-title, #contact form, .login-form, footer nav ul, .modal-title-zone, .modal-icons, #input-zone, #add-photo-form, #preview-div, #add-photo-container .return-button, #add-photo-container .return-button, #add-photo-container i{
+h1, #navbar, nav ul, .visible-items, #introduction, #filterbar, #projects-title, #contact form, .login-form, footer nav ul, #modal-gallery, .modal-title-zone, .modal-icons, #input-zone, #add-photo-form, #preview-div, #add-photo-container .return-button, #add-photo-container .return-button, #add-photo-container i{
 	display: flex;
 }
 
@@ -320,7 +320,7 @@ footer nav ul {
 
 .modal-title-zone{
 	width: 100%;
-	flex-direction: column-reverse;
+	flex-direction:column-reverse;
 }
 
 .modal-title{
@@ -339,16 +339,16 @@ footer nav ul {
 
 /* Gallery modal */
 
-#modal-container p{
+#modal-container span{
 	color: #D65353;
+	padding-bottom: 16px;
 }
 
 #modal-gallery {
-	width: 90%;
-	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	gap: 20px;
+	width: 90%;
 	border-bottom: 1px solid grey;
 	padding:24px 0px;
 
@@ -360,24 +360,21 @@ footer nav ul {
 
 #modal-gallery img{
 	height:90px;
-	width:100%;
-	object-fit: cover;
 }
 
 .maximize-btn, .delete-btn{
 	color: white;
 	background-color: black;
 	padding: 3px;
-	border-radius: 25%;
-	top:0;
+	border-radius: 20%;
 }
 
 .icon-div {
 	gap: 8px;
 	position: relative;
 	text-align: right;
-	top: -100px;
-	margin-right:4px ;
+	top: -103px;
+	margin-right:2px;
 	height:0px;
 }
 
@@ -390,7 +387,7 @@ footer nav ul {
 }
 
 
-/* Formulaire ajout photos */
+/* "Add photos" Form */
 
 #add-photo-container input, #add-photo-container select{
 	margin: 8px 0 24px 0;
@@ -402,14 +399,13 @@ footer nav ul {
 }
 
 
-
 /* Preview space */
 #preview-div{
-	height:150px;
-	background-color: #E8F1F6;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	height:150px;
+	background-color: #E8F1F6;
 	margin: 16px 0 8px 0;
 	border-radius: 5px;
 }
@@ -421,9 +417,9 @@ footer nav ul {
 }
 
 #add-photo-form{
-	width: 80%;
 	flex-direction: column;
 	justify-content: space-between;
+	width: 80%;
 	padding-bottom: 16px;
 }
 
@@ -437,6 +433,10 @@ footer nav ul {
 	opacity: 70%;
 }
 
+#input-btn:hover{
+	opacity: 100%;
+}
+
 .confirm-photo-button{
 	background-color: #A7A7A7;
 	border: none;
@@ -444,14 +444,8 @@ footer nav ul {
 	align-self: center;
 }
 
-#input-btn:hover{
-	opacity: 100%;
-}
-
 hr{
-	margin:16px 0 30px 0;
-	padding:0;
-	align-self: normal;
+	margin:16px 0 24px 0;
 }
 
 #input-zone{
@@ -464,13 +458,12 @@ output, output .uploaded-image, output img, #input-zone{
 	height: 100%;
 }
 
-
 .red-warning{
 	color: red;
 	font-weight: 600;
-	margin-top: 8px;
-	margin-bottom: 8px;
+	margin: 8px 0;
 }
+
 
 /* CSS RULES FOR LOGIN PAGE*/
 

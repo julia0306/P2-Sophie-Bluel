@@ -1,9 +1,10 @@
+// JE DECLARE MES VARIABLES (cf "variables.js")
+
 // JE RECUPERE LES TRAVAUX DEPUIS LE BACKEND
 async function getWorks() {
   const returnedWorks = await fetch(WORKS_URL);
-  console.log(returnedWorks);
   const returnedImages = await returnedWorks.json();
-  console.log(returnedImages);
+
   displayGallery(returnedImages);
   displaymodalGallery(returnedImages);
   onClickDeleteAllWorks();
@@ -15,9 +16,7 @@ getWorks();
 
 // J'AFFICHE LA GALERIE PRINCIPALE
 
-/** 
-displayGallery affiche la galerie une fois les travaux récupérés
-*/
+/** displayGallery affiche la galerie une fois les travaux récupérés */
 function displayGallery(returnedImages) {
   for (let i = 0; i < returnedImages.length; i++) {
     // Je déclare mes variables
@@ -46,23 +45,27 @@ function displayGallery(returnedImages) {
 /** displayModalGallery affiche la galerie de la modale une fois les travaux récupérés */
 function displaymodalGallery(returnedImages) {
   for (let i = 0; i < returnedImages.length; i++) {
+
+    // Je déclare mes variables
     const imageData = returnedImages[i];
 
+    // Je crée les éléments dans le DOM
     const modalFigure = document.createElement("figure");
     const modalImage = document.createElement("img");
     const modalCaption = document.createElement("figcaption");
     const iconDiv = document.createElement("div");
 
+    // Je rattache les éléments créés en attribuant un élément enfant à un élément parent
     modalGallery.appendChild(modalFigure);
     modalFigure.appendChild(modalImage);
     modalFigure.appendChild(modalCaption);
     modalFigure.appendChild(iconDiv);
 
+    // Je configure les éléments que je viens de créer:
     modalImage.src = imageData.imageUrl;
     modalFigure.classList.add("modal-figure");
     modalFigure.dataset.id = imageData.id;
     modalCaption.innerText = "éditer";
-
     iconDiv.innerHTML = `<div class="icon-div">
           <button class="maximize-btn">
              <i class="fa-solid fa-arrows-up-down-left-right"></i>
@@ -82,15 +85,13 @@ function updateGalleries() {
 }
 
 //JE GENERE UN FORMULAIRE DE CONNEXION FONCTIONNEL (cf. "login.js")
-
 // JE METS EN PLACE L'AFFICHAGE DU MODE "ADMIN" (cf. "editmode.js")
-
 // JE METS EN PLACE LES FILTRES (cf "filters.js")
-
 // JE METS EN PLACE L'AFFICHAGE DE LA GALERIE MODALE (cf "modalwindow.js")
 // JE GERE SON CONTENU ET SON STYLE (cf "modalcontent.js")
 
 //J'INSTAURE LA SUPPRESSION D'UN PROJET SPECIFIQUE
+/**onClickDeleteWorkFromGallery supprime un projet spécifique, au clic sur l'icône corbeille qui y est rattachée */
 function onClickDeleteWorkFromGallery() {
   const deleteButton = document.querySelectorAll(".delete-btn");
   deleteButton.forEach((button) => {
@@ -110,7 +111,6 @@ function onClickDeleteWorkFromGallery() {
             Authorization: "Bearer " + userToken,
           },
         }).then((response) => {
-          console.log(response);
           if (response.ok) {
             updateGalleries();
           }
@@ -128,6 +128,7 @@ function onClickDeleteWorkFromGallery() {
 }
 
 // JE PERMETS LA SUPPRESSION DE TOUS LES TRAVAUX :
+/**onClickDeleteAllWorks permet de supprimer l'ensemble des projets lorsque l'utilisateur clique sur le lien "supprimer la galerie" */
 function onClickDeleteAllWorks() {
   modalGalleryDeletionLink.addEventListener("click", deleteAllWorks);
 }
@@ -154,8 +155,6 @@ async function deleteAllWorks(e) {
       }
       if (response.ok) {
         updateGalleries();
-      } else {
-        console.log("error");
       }
     });
   }
@@ -211,7 +210,7 @@ function displayUploadedImage() {
 }
 
 function submitFormandSendRequest() {
-  addPhotoForm.addEventListener("submit", function (e) {
+  addPhotoForm.addEventListener("submit", function(e){
     e.preventDefault();
     sendAddPhotoRequestToAPI();
   });
@@ -219,7 +218,7 @@ function submitFormandSendRequest() {
 
 // J'envoie ma requête à l'API:
 async function sendAddPhotoRequestToAPI() {
-  // Je récupère les données nécessaires
+  // Je déclare mes variables
   const userToken = localStorage.getItem("token");
 
   const uploadedImage = imageInput.files[0];
@@ -237,7 +236,7 @@ async function sendAddPhotoRequestToAPI() {
   formData.append("title", titleValue);
   formData.append("category", categoryNumber);
 
-  // Si le formulaire est bien complété, j'envoie ma requête
+  // Si le formulaire est bien complété, j'envoie ma requête à l'API
   if (imagesArray.length<1) {
     alert("Vous n'avez pas sélectionné de photo");
   } else if (uploadedFileSizeinMB >= 4096) {
