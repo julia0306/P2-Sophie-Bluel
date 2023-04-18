@@ -1,5 +1,6 @@
 // JE METS EN PLACE LES FILTRES
 
+/** filterGallery filtre les projets en fonction de leur catégorie */
 function filterGallery(returnedImages) {
     // Au clic sur le bouton "TOUS", j'affiche tous les travaux:
     allButton.addEventListener("click", function () {
@@ -34,5 +35,5 @@ function filterGallery(returnedImages) {
       gallery.innerHTML = "";
       displayGallery(hotelsGallery);
     });
-  }
+}
   

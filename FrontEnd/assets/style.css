@@ -67,7 +67,9 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #EFEFEF;
 }
+
 
 /* HEADER */
 
@@ -76,7 +78,7 @@ body {
 }
 
 #spacer{
-	height:32px;
+	height:4vh;
 }
 
 #navbar, section {
@@ -85,18 +87,16 @@ body {
 
 h1{
 	flex-direction: column;
-	text-transform: uppercase;
 	font-family: 'Syne';
 	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C
 }
 
 h1 > span {
 	font-family: 'Work Sans';
+	text-transform: uppercase;
+	padding-top: 8px;
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
 }
 
 h2{
@@ -107,7 +107,6 @@ h2{
 }
 
 a{
-	
 	color: black;
 	text-decoration: none;
 }
@@ -115,19 +114,17 @@ a{
 nav ul {	
 	list-style-type: none;
 	align-items: center;
-
 }
 
 nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
+	padding: 0 16px;
+	font-size: 1.2rem;
 }
 
-li:hover, a:hover{
+h1, li:hover, a:hover{
 	color: #B1663C;
 	font-weight: 900;
 }
-
 
 .edit-banner{
 	position: absolute;
@@ -146,6 +143,7 @@ li:hover, a:hover{
 	border-radius: 25px;
 	padding: 8px 16px;
 }
+
 
 
 /* INTRODUCTION SECTION */
@@ -181,13 +179,9 @@ li:hover, a:hover{
 }
 
 .edit-link{
-	align-items: top;
 	font-size:1rem;
 	font-family: 'Work Sans';
-	font-weight: 400;
-	color:black;
 	}
-
 
 .edit-link i{
 	padding: 0 8px 0 0;
@@ -195,30 +189,32 @@ li:hover, a:hover{
 }
 
 #introduction-image .edit-link{
-	margin-left:55px
+	margin-left: 55px
 }
 
 #filterbar{
 	justify-content: center;
-	gap:16px;
+	gap:1vw;
+	flex-wrap: wrap;
 	padding-bottom: 32px;
 }
 
 .filterbutton{
-	color:#1D6154;
-	background-color: white;
-	border-radius: 25px;
 	border: 1px solid #1D6154;
-	padding: 8px 16px;
+	border-radius: 60px;
+	padding: 1vh 1.3vw;
+	background-color: white;
 	font-family: 'Syne';
 	font-size: 1rem;
-
+	color:#1D6154;
 }
 
 .green-button, .filterbutton:hover, input[type="submit"], #login-submit, .add-photo-button{
 	background-color: #1D6154;
 	color:white;
 }
+
+
 
 /* PORTFOLIO SECTION */
 
@@ -227,37 +223,37 @@ li:hover, a:hover{
 }
 
 #gallery {
-	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
 
-#gallery img {
+#gallery, #gallery img {
 	width: 100%;
-
 }
 
+
+
 /* CONTACT SECTION */
+
 #contact {
-	width: 50%;
 	margin: auto;
+	width: 50%;
 }
 #contact > *, #login {
 	text-align: center;
-
 }
+
 #contact h2, #login h2{
 	margin-bottom: 20px;
 }
+
 #contact form, .login-form {
 	flex-direction: column;
 	text-align: left;
 	margin-top:30px;
-	
 }
-
 
 #contact input, .login-form input, #modal input, select {
 	height: 50px;
@@ -267,26 +263,26 @@ li:hover, a:hover{
 #contact label, #login label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea, #contact input, .login-form input, #modal input, select {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 input[type="submit"], #login-submit, .add-photo-button, .confirm-photo-button, .green-button {
+	margin : 1.5em auto ;
+	border: none;
+	border-radius: 60px ;
+	width: 180px;
+	padding: 8px;
 	font-family: 'Syne';
 	font-weight: 700;
-	color: white;
-	margin : 1.5em auto ;
-	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
-	padding: 8px;
-	border: none;
+	color: white;
 }
 
-.green-button{
-	margin: 0 auto
-}
+
+/* FOOTER */
 
 footer nav ul {
 	justify-content: flex-end;
@@ -295,7 +291,7 @@ footer nav ul {
 
 
 
-/*CSS RULES FOR MODAL WINDOW */
+/* MODAL WINDOW */
 #modal{
 	position:fixed;
 	align-items: center;
@@ -307,20 +303,20 @@ footer nav ul {
 }
 
 #modal-container,  #add-photo-container{
-	overflow: auto;
-	width: 450px;
-	max-height: calc(100vh - 20px);
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	background-color: white;
+	overflow: auto;
+	width: 450px;
+	max-height: calc(100vh - 20px);
 	border: 1px solid black;
 	padding:16px;
+	background-color: white;
 } 
 
 .modal-title-zone{
-	width: 100%;
 	flex-direction:column-reverse;
+	width: 100%;
 }
 
 .modal-title{
@@ -332,26 +328,20 @@ footer nav ul {
 }
 
 .modal-icons{
-	width: 100%;
 	justify-content: space-between;
+	width: 100%;
 	font-size: 1.5rem;
 }
 
 /* Gallery modal */
 
-#modal-container span{
-	color: #D65353;
-	padding-bottom: 16px;
-}
-
 #modal-gallery {
 	flex-wrap: wrap;
 	align-items: center;
 	gap: 20px;
-	width: 90%;
 	border-bottom: 1px solid grey;
+	width: 90%;
 	padding:24px 0px;
-
 }
 
 .modal-figure{
@@ -362,20 +352,20 @@ footer nav ul {
 	height:90px;
 }
 
-.maximize-btn, .delete-btn{
-	color: white;
-	background-color: black;
-	padding: 3px;
-	border-radius: 20%;
-}
-
 .icon-div {
-	gap: 8px;
 	position: relative;
-	text-align: right;
 	top: -103px;
+	gap: 8px;
 	margin-right:2px;
 	height:0px;
+	text-align: right;
+}
+
+.maximize-btn, .delete-btn{
+	border-radius: 20%;
+	padding: 3px;
+	background-color: black;
+	color: white;
 }
 
 #modal-container .return-button, .maximize-btn{
@@ -394,42 +384,46 @@ footer nav ul {
 }
 
 .modal-icons button{
-	background: none;
 	border: none;
+	background: none;
 }
 
-
 /* Preview space */
+
+output, output .uploaded-image, output img, #input-zone{
+	height: 100%;
+}
+
 #preview-div{
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	margin: 8px 0 24px 0;
+	border-radius: 5px;
 	height:150px;
 	background-color: #E8F1F6;
-	margin: 16px 0 8px 0;
-	border-radius: 5px;
 }
 
 .fa-image{
-	color: #B9C5CC;
 	font-size: 48px;
 	font-weight: 100;
+	color: #B9C5CC;
 }
 
 #add-photo-form{
 	flex-direction: column;
 	justify-content: space-between;
 	width: 80%;
-	padding-bottom: 16px;
+	padding: 32px 0;
 }
 
 #input-btn{
+	border: none;
 	border-radius: 25px;
+	padding: 10px 22px;
 	background-color: #CBD6DC ;
 	color: #306685;
-	border: none;
 	font-weight: 700;
-	padding: 10px 22px;
 	opacity: 70%;
 }
 
@@ -438,10 +432,14 @@ footer nav ul {
 }
 
 .confirm-photo-button{
-	background-color: #A7A7A7;
-	border: none;
 	margin:0;
+	border: none;
 	align-self: center;
+	background-color: #A7A7A7;
+}
+
+.green-button{
+	margin: 0 auto
 }
 
 hr{
@@ -454,23 +452,18 @@ hr{
 	align-items: center;
 }
 
-output, output .uploaded-image, output img, #input-zone{
-	height: 100%;
-}
-
-.red-warning{
-	color: red;
-	font-weight: 600;
+.red-warning, #modal-container span{
 	margin: 8px 0;
+	font-weight: 600;
+	color: red;
 }
 
-
-/* CSS RULES FOR LOGIN PAGE*/
+/*LOGIN PAGE*/
 
 #login{
-	height:90vh;
-	width:380px;
 	margin: auto;
+	width:380px;
+	height:90vh;
 }
 
 #login a{

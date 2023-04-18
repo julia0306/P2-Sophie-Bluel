@@ -35,10 +35,13 @@ loginForm.addEventListener('submit', async function(e){
         })
 })
 
-/**showRedWarning permet d'afficher un message d'erreur en cas de formulaire mal renseigné */
-function showRedWarning(){
-const redWarning=document.querySelector(".red-warning")
-redWarning.classList.add("visible-items")
-redWarning.classList.remove("invisble-items")
-}
+
+// LES FONCTIONS UTILISEES : //
+
+                /**showRedWarning permet d'afficher un message d'erreur en cas de formulaire mal renseigné */
+                function showRedWarning(){
+                const redWarning=document.querySelector(".red-warning")
+                redWarning.classList.add("visible-items")
+                redWarning.classList.remove("invisble-items")
+                }
 
