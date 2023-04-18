@@ -30,7 +30,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* DISPLAY SETTINGS */
 
-#spacer, #logout-btn, .edit-banner, .edit-link, .invisible-items{
+.spacer, #logout-btn, .edit-banner, .edit-link, .invisible-items{
 	display: none
 }
 
@@ -77,7 +77,7 @@ body {
 	justify-content: space-between;
 }
 
-#spacer{
+.spacer{
 	height:4vh;
 }
 
@@ -350,6 +350,8 @@ footer nav ul {
 
 #modal-gallery img{
 	height:90px;
+	width: 100%;
+	object-fit: cover;
 }
 
 .icon-div {
