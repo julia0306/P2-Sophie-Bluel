@@ -214,7 +214,7 @@ h1, li:hover, a:hover{
 	color:white;
 }
 
-.green-button, .filterbutton:hover, input[type="submit"], #login-submit, .add-photo-button{
+.green-button, input[type="submit"], #login-submit, .add-photo-button{
 	background-color: #1D6154;
 	color:white;
 }
