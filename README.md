@@ -1,4 +1,4 @@
-# Booki
+# Site portfolio de Sophie Bluel
 ![Project Cover](https://i.ibb.co/WgD1dJ5/Bluel-accueil.jpg)
 ## Description
 
